@@ -25,7 +25,47 @@ function app(people) {
   // Call the mainMenu function ONLY after you find the SINGLE person you are looking for
   mainMenu(searchResults, people);
 }
+function searchByTraits(people) {
+  let userSearchOptions = promt(
+    "What traits or characteristics would you like to search for? 'Gender', 'Age', 'Height', 'Weight', 'Eye color', 'Occupation'"
+  );
+  let filteredPeople;
 
+  switch (userSearchOptions) {
+    case "Gender":
+      filteredPeople = searchByGender(people);
+      break;
+    case "Age":
+      filteredPeople = searchByAge(people);
+      break;
+    case "Height":
+      filteredPeople = searchByHeight(people);
+      break;
+    case "Weight":
+      filteredPeople = searchByWeight(people);
+      break;
+    case "Eye Color":
+      filteredPeople = searchByEyeColor(people);
+      break;
+    case "Occupation":
+      filteredPeople = searchByOccupation(people);
+      break;
+    default:
+      alert("Invalid search option, please try again.");
+      searchByTraits(people);
+      break;
+  }
+  for (i = 0; i < filteredPeople.length; i++) {
+    if (filteredPeople.length == 0) {
+      alert("This person doesn't exist.");
+      app(people);
+    } else if (filteredPeople.length > 1) {
+      searchByTraits(filteredPeople);
+    } else {
+      mainMenu(people);
+    }
+  }
+}
 // Menu function to call once you find who you are looking for
 function mainMenu(person, people) {
   /* Here we pass in the entire person object that we found in our search, as well as the entire original dataset of people. We need people in order to find descendants and other information that the user may want. */
