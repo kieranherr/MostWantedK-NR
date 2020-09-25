@@ -77,11 +77,61 @@ function searchByGender(people) {
   });
   return thisArray;
 }
-function searchByAge(people) {}
-function searchByHeight(people) {}
-function searchByWeight(people) {}
-function searchByEyeColor(people) {}
-function searchByOccupation(people) {}
+function searchByAge(people) {
+  let userInputGender = prompt(
+    "What is the gender of the Individual you are looking for?"
+  );
+  let thisArray = people.filter(function (el) {
+    if (el.gender == userInputGender) {
+      return true;
+    }
+  });
+  return thisArray;
+}
+function searchByHeight(people) {
+  let userInputGender = prompt(
+    "What is the gender of the Individual you are looking for?"
+  );
+  let thisArray = people.filter(function (el) {
+    if (el.gender == userInputGender) {
+      return true;
+    }
+  });
+  return thisArray;
+}
+function searchByWeight(people) {
+  let userInputGender = prompt(
+    "What is the gender of the Individual you are looking for?"
+  );
+  let thisArray = people.filter(function (el) {
+    if (el.gender == userInputGender) {
+      return true;
+    }
+  });
+  return thisArray;
+}
+function searchByEyeColor(people) {
+  let userInputGender = prompt(
+    "What is the gender of the Individual you are looking for?"
+  );
+  let thisArray = people.filter(function (el) {
+    if (el.gender == userInputGender) {
+      return true;
+    }
+  });
+  return thisArray;
+}
+function searchByOccupation(people) {
+  let userInputGender = prompt(
+    "What is the gender of the Individual you are looking for?"
+  );
+  let thisArray = people.filter(function (el) {
+    if (el.gender == userInputGender) {
+      return true;
+    }
+  });
+  return thisArray;
+}
 // Menu function to call once you find who you are looking for
 function mainMenu(person, people) {
   /* Here we pass in the entire person object that we found in our search, as well as the entire original dataset of people. We need people in order to find descendants and other information that the user may want. */
