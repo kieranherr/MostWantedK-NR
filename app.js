@@ -214,8 +214,22 @@ function getFamily(person, people) {
   });
   displayPeople(newObj);
 }
+function getSpouse(person, people){
+  let foundSpouse = ;//
+  return foundSpouse;
 
-function lookUpDescendants(person, people) {}
+}
+function getSiblings(person, people){
+  let foundSiblings = ;//
+  return foundSiblings;
+
+}
+function getParents(person, people){
+  let foundParents = ;//
+  return foundParents;
+}
+
+
 
 // function that prompts and validates user input
 function promptFor(question, valid) {
