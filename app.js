@@ -66,7 +66,17 @@ function searchByTraits(people) {
     }
   }
 }
-function searchByGender(people) {}
+function searchByGender(people) {
+  let userInputGender = prompt(
+    "What is the gender of the Individual you are looking for?"
+  );
+  let thisArray = people.filter(function (el) {
+    if (el.gender == userInputGender) {
+      return true;
+    }
+  });
+  return thisArray;
+}
 function searchByAge(people) {}
 function searchByHeight(people) {}
 function searchByWeight(people) {}
