@@ -114,8 +114,13 @@ function searchByName(people) {
       return false;
     }
   });
+  console.log(foundPerson);
   // TODO: find the person using the name they entered
-  return foundPerson;
+ const newObj = foundPerson.reduce(function(result,item,index){
+   result[index] = item;
+   return result;
+ });
+  return newObj;
 }
 
 // alerts a list of people
@@ -132,8 +137,14 @@ function displayPeople(people) {
 function displayPerson(person) {
   // print all of the information about a person:
   // height, weight, age, name, occupation, eye color.
+
   let personInfo = "First Name: " + person.firstName + "\n";
   personInfo += "Last Name: " + person.lastName + "\n";
+  personInfo += "Height: " + person.height + "\n";
+  personInfo += "Weight: " + person.weight + "\n";
+  personInfo += "Date of Brith: " + person.dob + "\n";
+  personInfo += "Eye Color: " + person.eyeColor + "\n";
+  personInfo += "Occupation: " + person.occupation + "\n";
   // TODO: finish getting the rest of the information to display
   alert(personInfo);
 }
