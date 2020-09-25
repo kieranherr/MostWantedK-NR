@@ -141,7 +141,7 @@ function mainMenu(person, people) {
       displayPerson(person);
       break;
     case "family":
-      getFamily();
+      getFamily(person, people);
       break;
     case "descendants":
       getPersonDescendants();
@@ -199,6 +199,22 @@ function displayPerson(person) {
   personInfo += "Current Spouse: " + person.currentSpouse + "\n";
   alert(personInfo);
 }
+function getFamily(person, people) {
+  let family = people.filter(function (person) {
+    if (person.parents === people.id) {
+      return true;
+    } else {
+      return false;
+    }
+  });
+  const newObj = family.reduce(function (result, item, index) {
+    result[index] = item;
+    return result;
+  });
+  displayPeople(newObj);
+}
+
+// function that prompts and validates user input
 function promptFor(question, valid) {
   do {
     var response = prompt(question).trim();
