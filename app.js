@@ -78,22 +78,22 @@ function searchByGender(people) {
   return thisArray;
 }
 function searchByAge(people) {
-  let userInputGender = prompt(
-    "What is the gender of the Individual you are looking for?"
+  let userInputAge = prompt(
+    "What is the Age of the Individual you are looking for?"
   );
   let thisArray = people.filter(function (el) {
-    if (el.gender == userInputGender) {
+    if (el.Age == userInputAge) {
       return true;
     }
   });
   return thisArray;
 }
 function searchByHeight(people) {
-  let userInputGender = prompt(
-    "What is the gender of the Individual you are looking for?"
+  let userInputHeight = prompt(
+    "What is the Height of the Individual you are looking for?"
   );
   let thisArray = people.filter(function (el) {
-    if (el.gender == userInputGender) {
+    if (el.Height == userInputHeight) {
       return true;
     }
   });
