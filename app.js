@@ -111,11 +111,11 @@ function searchByWeight(people) {
   return thisArray;
 }
 function searchByEyeColor(people) {
-  let userInputGender = prompt(
-    "What is the gender of the Individual you are looking for?"
+  let userInputEyeColor = prompt(
+    "What is the Eye Colorof the Individual you are looking for?"
   );
   let thisArray = people.filter(function (el) {
-    if (el.gender == userInputGender) {
+    if (el.eyeColor == userInputEyeColor) {
       return true;
     }
   });
