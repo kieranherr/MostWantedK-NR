@@ -27,7 +27,7 @@ function app(people) {
 }
 function searchByTraits(people) {
   let userSearchOptions = promt(
-    "What traits or characteristics would you like to search for? 'Gender', 'Age', 'Height', 'Weight', 'Eye color', 'Occupation'"
+    "What traits or characteristics would you like to search for? 'Gender', 'DOB: month/day/year', 'Height', 'Weight', 'Eye color', 'Occupation'"
   );
   let filteredPeople;
 
@@ -35,8 +35,8 @@ function searchByTraits(people) {
     case "Gender":
       filteredPeople = searchByGender(people);
       break;
-    case "Age":
-      filteredPeople = searchByAge(people);
+    case "DOB: month/day/year":
+      filteredPeople = searchByDOB(people);
       break;
     case "Height":
       filteredPeople = searchByHeight(people);
@@ -77,12 +77,12 @@ function searchByGender(people) {
   });
   return thisArray;
 }
-function searchByAge(people) {
-  let userInputAge = prompt(
-    "What is the Age of the Individual you are looking for?"
+function searchByDOB(people) {
+  let userInputDOB = prompt(
+    "What is the DOB: month/day/year, of the Individual you are looking for?"
   );
   let thisArray = people.filter(function (el) {
-    if (el.Age == userInputAge) {
+    if (el.dob == userInputDOB) {
       return true;
     }
   });
