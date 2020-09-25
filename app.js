@@ -1,4 +1,5 @@
 "use strict";
+
 function app(people) {
   let searchType = promptFor(
     "Do you know the name of the person you are looking for? Enter 'yes' or 'no'",
@@ -10,13 +11,45 @@ function app(people) {
       searchResults = searchByName(people);
       break;
     case "no":
-      searchByTraits(people);
+      searchResults = searchByTraits(people);
       break;
     default:
       app(people);
       break;
   }
   mainMenu(searchResults, people);
+}
+
+function mainMenu(person, people) {
+  if (!person) {
+    alert("Could not find that individual.");
+    return app(people); // restart
+  }
+  let displayOption = prompt(
+    "Found " +
+      person.firstName +
+      " " +
+      person.lastName +
+      " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'"
+  );
+  switch (displayOption) {
+    case "info":
+      displayPerson(person);
+      break;
+    case "family":
+      getFamily(person, people);
+      break;
+    case "descendants":
+      getPersonDescendants();
+      break;
+    case "restart":
+      app(people);
+      break;
+    case "quit":
+      return;
+    default:
+      return mainMenu(person, people);
+  }
 }
 function searchByTraits(people) {
   let userSearchOptions = promt(
@@ -124,38 +157,6 @@ function searchByOccupation(people) {
   });
   return thisArray;
 }
-function mainMenu(person, people) {
-  if (!person) {
-    alert("Could not find that individual.");
-    return app(people); // restart
-  }
-  let displayOption = prompt(
-    "Found " +
-      person.firstName +
-      " " +
-      person.lastName +
-      " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'"
-  );
-  switch (displayOption) {
-    case "info":
-      displayPerson(person);
-      break;
-    case "family":
-      getFamily(person, people);
-      break;
-    case "descendants":
-      getPersonDescendants();
-      break;
-    case "restart":
-      app(people);
-      break;
-    case "quit":
-      return;
-    default:
-      return mainMenu(person, people);
-  }
-}
-
 function searchByName(people) {
   let firstName = promptFor("What is the person's first name?", chars);
   let lastName = promptFor("What is the person's last name?", chars);
@@ -214,36 +215,33 @@ function getFamily(person, people) {
   });
   displayPeople(newObj);
 }
-function getSpouse(person, people){
-  let foundSpouse = ;//
-  return foundSpouse;
-
-}
-function getSiblings(person, people){
-  let foundSiblings = ;//
-  return foundSiblings;
-
-}
-function getParents(person, people){
-  let foundParents = ;//
-  return foundParents;
-}
+//function getSpouse(person, people){
+//  let foundSpouse = ;//
+//  return foundSpouse;
+//}
+//function getSiblings(person, people){
+//  let foundSiblings = ;//
+//  return foundSiblings;
+//}
+//function getParents(person, people){
+//  let foundParents = ;//
+// return foundParents;
+//}
 
 function searchForDescendants(person, people) {
   let foundDescendants = [];
-  for(let i=0; i < people.length; i++){
-    if(people[i].parents.includes(person.id)){
+  for (let i = 0; i < people.length; i++) {
+    if (people[i].parents.includes(person.id)) {
       foundDescendants.push(people[i]);
     }
   }
-  for(let i = 0; i < foundDescendants.length; i++){
+  for (let i = 0; i < foundDescendants.length; i++) {
     let thisOne = seachForDescendants(foundDescendants[i], people);
-    thisOne.forEach(function(el){
+    thisOne.forEach(function (el) {
       foundDescendants.push(el);
-    })
+    });
   }
   return foundDescendants;
-
 }
 
 // function that prompts and validates user input
