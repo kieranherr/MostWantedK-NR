@@ -62,10 +62,11 @@ function searchByTraits(people) {
     } else if (filteredPeople.length > 1) {
       searchByTraits(filteredPeople);
     } else {
-      mainMenu(people);
+      displayPeople(filteredPeople);
     }
   }
 }
+
 // Menu function to call once you find who you are looking for
 function mainMenu(person, people) {
   /* Here we pass in the entire person object that we found in our search, as well as the entire original dataset of people. We need people in order to find descendants and other information that the user may want. */
@@ -132,6 +133,7 @@ function displayPeople(people) {
       })
       .join("\n")
   );
+  app(people);
 }
 
 function displayPerson(person) {
