@@ -154,7 +154,7 @@ function mainMenu(person, people) {
       displayPerson(person);
       break;
     case "family":
-      getFamily();
+      getFamily(person, people);
       break;
     case "descendants":
       getPersonDescendants();
@@ -214,6 +214,23 @@ function displayPerson(person) {
   personInfo += "Occupation: " + person.occupation + "\n";
   // TODO: finish getting the rest of the information to display
   alert(personInfo);
+}
+function getFamily(person, people){
+let family = people.filter(function(person){
+  if(person.parents === people.id){
+    return true;
+  }
+  else{
+    return false;
+  }
+});
+const newObj = family.reduce(function (result, item, index) {
+  result[index] = item;
+  return result;
+});
+displayPeople(newObj);
+
+
 }
 
 // function that prompts and validates user input
