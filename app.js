@@ -122,11 +122,11 @@ function searchByEyeColor(people) {
   return thisArray;
 }
 function searchByOccupation(people) {
-  let userInputGender = prompt(
-    "What is the gender of the Individual you are looking for?"
+  let userInputOccupation = prompt(
+    "What is the Occupation of the Individual you are looking for?"
   );
   let thisArray = people.filter(function (el) {
-    if (el.gender == userInputGender) {
+    if (el.occupation == userInputOccupation) {
       return true;
     }
   });
