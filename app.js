@@ -100,11 +100,11 @@ function searchByHeight(people) {
   return thisArray;
 }
 function searchByWeight(people) {
-  let userInputGender = prompt(
-    "What is the gender of the Individual you are looking for?"
+  let userInputWeight = prompt(
+    "What is the Weight of the Individual you are looking for?"
   );
   let thisArray = people.filter(function (el) {
-    if (el.gender == userInputGender) {
+    if (el.weight == userInputWeight) {
       return true;
     }
   });
