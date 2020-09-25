@@ -200,21 +200,22 @@ function displayPerson(person) {
   alert(personInfo);
 }
 
-function getFamily(person, people){
-let family = people.filter(function(el){
-  if(el.parents === people.id){
-    return true;
-  }
-  else{
-    return false;
-  }
-});
-const newObj = family.reduce(function (result, item, index) {
-  result[index] = item;
-  return result;
-});
-displayPeople(newObj);
+function getFamily(person, people) {
+  let family = people.filter(function (el) {
+    if (el.parents === people.id) {
+      return true;
+    } else {
+      return false;
+    }
+  });
+  const newObj = family.reduce(function (result, item, index) {
+    result[index] = item;
+    return result;
+  });
+  displayPeople(newObj);
 }
+
+function lookUpDescendants(person, people) {}
 
 // function that prompts and validates user input
 function promptFor(question, valid) {
