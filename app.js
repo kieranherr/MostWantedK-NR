@@ -229,7 +229,22 @@ function getParents(person, people){
   return foundParents;
 }
 
+function searchForDescendants(person, people) {
+  let foundDescendants = [];
+  for(let i=0; i < people.length; i++){
+    if(people[i].parents.includes(person.id)){
+      foundDescendants.push(people[i]);
+    }
+  }
+  for(let i = 0; i < foundDescendants.length; i++){
+    let thisOne = seachForDescendants(foundDescendants[i], people);
+    thisOne.forEach(function(el){
+      foundDescendants.push(el);
+    })
+  }
+  return foundDescendants;
 
+}
 
 // function that prompts and validates user input
 function promptFor(question, valid) {
