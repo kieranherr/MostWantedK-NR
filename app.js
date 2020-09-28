@@ -191,7 +191,6 @@ function displayPeople(people) {
       })
       .join("\n")
   );
- 
 }
 function displayPerson(person) {
   let personInfo = "First Name: " + person.firstName + "\n";
@@ -263,12 +262,6 @@ function searchForDescendants(person, people) {
       foundDescendants.push(people[i]);
     }
   }
-  // for (let i = 0; i < foundDescendants.length; i++) {
-  //   let thisOne = seachForDescendants(foundDescendants[i], people);
-  //   thisOne.forEach(function (el) {
-  //     foundDescendants.push(el);
-  //   });
-  // }
   return foundDescendants;
 }
 
