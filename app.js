@@ -213,14 +213,23 @@ function getFamily(person, people) {
   });
   displayPeople(newObj);
 }
-function getSpouse(person, people){
-  let foundSpouse = ;
+function getSpouse(person, people) {
+  let foundSpouse = people.filter(function (people) {
+    if (people.currentSpouse == person.id) {
+      return true;
+    } else {
+      return false;
+    }
+  });
   return foundSpouse;
 }
-function getSiblings(person, people){
-  let foundSiblings = people.filter(function(people) {
-    for(let i = 0; i < people.parents.length; i++) {
-      if(person.parents.includes(people.parents[i]) && person.id !== people.id) {
+function getSiblings(person, people) {
+  let foundSiblings = people.filter(function (people) {
+    for (let i = 0; i < people.parents.length; i++) {
+      if (
+        person.parents.includes(people.parents[i]) &&
+        person.id !== people.id
+      ) {
         return true;
       }
     }
@@ -228,12 +237,11 @@ function getSiblings(person, people){
   });
   return foundSiblings;
 }
-function getParents(person, people){
-  let foundParents = people.filter(function (people){
-    if (person.parents.includes(people.id)){
+function getParents(person, people) {
+  let foundParents = people.filter(function (people) {
+    if (person.parents.includes(people.id)) {
       return true;
-    }
-    else{
+    } else {
       return false;
     }
   });
