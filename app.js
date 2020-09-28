@@ -238,13 +238,25 @@ function getSpouse(person, people) {
 }
 function getSiblings(person, people) {
   let siblings = people.filter(function (people) {
-    for (let i = 0; i < people.parents.length; i++) {
-      if (
-        person.parents.includes(people.parents[i]) &&
-        person.id !== people.id
-      ) {
-        return true;
-      }
+    if (person.id === familymember.id) {
+      return false;
+    }
+    if (
+      person.parents[0] === familymember.parents[0] ||
+      person.parents[1] === familymember.parents[0] ||
+      person.parents[0] === familymember.parents[1] ||
+      person.parents[1] === familymember.parents[1]
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  });
+  siblings.map(function (individual) {
+    if (individual.gender === "female") {
+      individual.role = "sister";
+    } else {
+      individual.role = "brother";
     }
     return false;
   });
