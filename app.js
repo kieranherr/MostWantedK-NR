@@ -132,8 +132,8 @@ function gender(input){
   }
 }
 function searchByDOB(people) {
-  let dob = promptFor(
-    "What is the DOB: month/day/year, of the Individual you are looking for?", dob)
+  let dob = parseInt(promptFor(
+    "What is the DOB: month/day/year, of the Individual you are looking for?", int)
   );
   let foundPerson = people.filter(function (el) {
     if (el.dob == dob) {
@@ -143,6 +143,15 @@ function searchByDOB(people) {
     }
   });
   return foundPerson;
+}
+function int(input){
+  if(isNaN(input) || input < 1 || input > 500) {
+    alert("Invalid option, please try again.");
+    return false;
+  }
+  else{
+    return true;
+  }
 }
 function searchByHeight(people) {
   let height = parseInt(
@@ -181,6 +190,12 @@ function searchByEyeColor(people) {
     }
   });
   return foundPerson;
+}
+function color(input){
+  let eyecolor = input.toLowerCase();
+  if (eyecolor == "blue" || eyecolor == "brown" || eyecolor == "black" || eyecolor == "green" || eyecolor == "hazel" || eyecolor == "amber" || eyecolor == "gray"){
+
+  }
 }
 function searchByOccupation(people) {
   let occupation = promptFor(
