@@ -40,7 +40,7 @@ function mainMenu(person, people) {
       getFamily(person, people);
       break;
     case "descendants":
-      getPersonDescendants();
+      displayPeople(searchForDescendants(person, people));
       break;
     case "restart":
       app(people);
@@ -89,6 +89,7 @@ function searchByTraits(people) {
       searchByTraits(filteredPeople);
     } else {
       displayPeople(filteredPeople);
+      app(people);
     }
   }
 }
@@ -190,7 +191,7 @@ function displayPeople(people) {
       })
       .join("\n")
   );
-  app(people);
+ 
 }
 function displayPerson(person) {
   let personInfo = "First Name: " + person.firstName + "\n";
@@ -262,12 +263,12 @@ function searchForDescendants(person, people) {
       foundDescendants.push(people[i]);
     }
   }
-  for (let i = 0; i < foundDescendants.length; i++) {
-    let thisOne = seachForDescendants(foundDescendants[i], people);
-    thisOne.forEach(function (el) {
-      foundDescendants.push(el);
-    });
-  }
+  // for (let i = 0; i < foundDescendants.length; i++) {
+  //   let thisOne = seachForDescendants(foundDescendants[i], people);
+  //   thisOne.forEach(function (el) {
+  //     foundDescendants.push(el);
+  //   });
+  // }
   return foundDescendants;
 }
 
