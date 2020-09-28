@@ -114,6 +114,8 @@ function searchByDOB(people) {
   let foundPerson = people.filter(function (el) {
     if (el.dob == dob) {
       return true;
+    } else {
+      return false;
     }
   });
   return foundPerson;
@@ -126,6 +128,8 @@ function searchByHeight(people) {
   let foundPerson = people.filter(function (el) {
     if (el.Height == height) {
       return true;
+    } else {
+      return false;
     }
   });
   return foundPerson;
@@ -138,6 +142,8 @@ function searchByWeight(people) {
   let foundPerson = people.filter(function (el) {
     if (el.weight == weight) {
       return true;
+    } else {
+      return false;
     }
   });
   return foundPerson;
@@ -150,6 +156,8 @@ function searchByEyeColor(people) {
   let foundPerson = people.filter(function (el) {
     if (el.eyeColor == eyeColor) {
       return true;
+    } else {
+      return false;
     }
   });
   return foundPerson;
@@ -161,6 +169,8 @@ function searchByOccupation(people) {
   let foundPerson = people.filter(function (el) {
     if (el.occupation == occupation) {
       return true;
+    } else {
+      return false;
     }
   });
   return foundPerson;
