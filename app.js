@@ -95,8 +95,7 @@ function searchByTraits(people) {
 }
 function searchByGender(people) {
   let gender = prompt(
-    "What is the gender of the Individual you are looking for?",
-    gender
+    "What is the gender of the Individual you are looking for?"
   );
   let foundPerson = people.filter(function (el) {
     if (el.gender == gender) {
@@ -122,8 +121,7 @@ function searchByDOB(people) {
 }
 function searchByHeight(people) {
   let height = prompt(
-    "What is the Height of the Individual you are looking for?",
-    int
+    "What is the Height of the Individual you are looking for?"
   );
   let foundPerson = people.filter(function (el) {
     if (el.Height == height) {
@@ -136,8 +134,7 @@ function searchByHeight(people) {
 }
 function searchByWeight(people) {
   let weight = prompt(
-    "What is the Weight of the Individual you are looking for?",
-    int
+    "What is the Weight of the Individual you are looking for?"
   );
   let foundPerson = people.filter(function (el) {
     if (el.weight == weight) {
@@ -150,8 +147,7 @@ function searchByWeight(people) {
 }
 function searchByEyeColor(people) {
   let eyeColor = prompt(
-    "What is the Eye Colorof the Individual you are looking for?",
-    color
+    "What is the Eye Colorof the Individual you are looking for?"
   );
   let foundPerson = people.filter(function (el) {
     if (el.eyeColor == eyeColor) {
