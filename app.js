@@ -52,47 +52,67 @@ function mainMenu(person, people) {
   }
 }
 function searchByTraits(people) {
-  let trait = promtFor(
+  let trait = promptFor(
     "What traits or characteristics would you like to search for? 'Gender', 'DOB: month/day/year', 'Height', 'Weight', 'Eye color', 'Occupation'",
     traits
   ).toLowerCase();
-  let filteredPeople;
-  let selected;
+  let filteredPeople = people;
+while(trait != "exit"){
   switch (trait) {
     case "gender":
       filteredPeople = searchByGender(people);
+      searchByTraits(filteredPeople);
       break;
     case "dob":
       filteredPeople = searchByDOB(people);
+      searchByTraits(filteredPeople);
       break;
     case "height":
       filteredPeople = searchByHeight(people);
+      searchByTraits(filteredPeople);
       break;
     case "weight":
       filteredPeople = searchByWeight(people);
+      searchByTraits(filteredPeople);
       break;
     case "eye Color":
       filteredPeople = searchByEyeColor(people);
+      searchByTraits(filteredPeople);
       break;
     case "occupation":
       filteredPeople = searchByOccupation(people);
+      searchByTraits(filteredPeople);
       break;
     default:
       alert("Invalid search option, please try again.");
-      searchByTraits(people);
+      if(filteredPeople.length == 0){
+        searchByTraits(people);
+      }
+      else{
+      searchByTraits(filteredPeople);
+      }
       break;
   }
-  for (i = 0; i < filteredPeople.length; i++) {
-    if (filteredPeople.length == 0) {
-      alert("This person doesn't exist.");
-      app(people);
-    } else if (filteredPeople.length > 1) {
-      searchByTraits(filteredPeople);
-    } else {
-      displayPeople(filteredPeople);
-      app(people);
-    }
-  }
+}
+if(filteredPeople.length == 0){
+  alert("No one matches those parameters. Please try again.")
+  app(people);
+}
+else{
+  displayPeople(filteredPeople);
+  app(people);
+}
+  // for (let i = 0; i < filteredPeople.length; i++) {
+  //   if (filteredPeople.length == 0) {
+  //     alert("This person doesn't exist.");
+  //     app(people);
+  //   } else if (filteredPeople.length > 1) {
+  //     searchByTraits(filteredPeople);
+  //   } else {
+  //     displayPeople(filteredPeople);
+  //     app(people);
+  //   }
+  // }
 }
 function traits(input) {
   let trait = input.toLowerCase();
@@ -102,7 +122,8 @@ function traits(input) {
     trait == "height" ||
     trait == "weight" ||
     trait == "eye color" ||
-    trait == "occupation"
+    trait == "occupation" ||
+    trait == "exit"
   ) {
     return true;
   } else {
@@ -161,7 +182,7 @@ function searchByHeight(people) {
     promptFor("What is the Height of the Individual you are looking for?", int)
   );
   let foundPerson = people.filter(function (el) {
-    if (el.Height == height) {
+    if (el.height == height) {
       return true;
     } else {
       return false;
