@@ -130,11 +130,10 @@ function gender(input){
     return false;
   }
   }
-}
+
 function searchByDOB(people) {
   let dob = promptFor(
-    "What is the DOB: month/day/year, of the Individual you are looking for?", dob)
-  );
+    "What is the DOB: month/day/year, of the Individual you are looking for?", dob);
   let foundPerson = people.filter(function (el) {
     if (el.dob == dob) {
       return true;
