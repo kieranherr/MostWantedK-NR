@@ -52,11 +52,12 @@ function mainMenu(person, people) {
   }
 }
 function searchByTraits(people) {
-  let userSearchOptions = promt(
+  let trait = promt(
     "What traits or characteristics would you like to search for? 'Gender', 'DOB: month/day/year', 'Height', 'Weight', 'Eye color', 'Occupation'"
   );
   let filteredPeople;
-  switch (userSearchOptions) {
+  let selected;
+  switch (trait) {
     case "Gender":
       filteredPeople = searchByGender(people);
       break;
@@ -92,70 +93,76 @@ function searchByTraits(people) {
   }
 }
 function searchByGender(people) {
-  let userInputGender = prompt(
-    "What is the gender of the Individual you are looking for?"
+  let gender = prompt(
+    "What is the gender of the Individual you are looking for?",
+    gender
   );
-  let thisArray = people.filter(function (el) {
-    if (el.gender == userInputGender) {
+  let foundPerson = people.filter(function (el) {
+    if (el.gender == gender) {
       return true;
+    } else {
+      return false;
     }
   });
-  return thisArray;
+  return foundPerson;
 }
 function searchByDOB(people) {
-  let userInputDOB = prompt(
+  let dob = prompt(
     "What is the DOB: month/day/year, of the Individual you are looking for?"
   );
-  let thisArray = people.filter(function (el) {
-    if (el.dob == userInputDOB) {
+  let foundPerson = people.filter(function (el) {
+    if (el.dob == dob) {
       return true;
     }
   });
-  return thisArray;
+  return foundPerson;
 }
 function searchByHeight(people) {
-  let userInputHeight = prompt(
-    "What is the Height of the Individual you are looking for?"
+  let height = prompt(
+    "What is the Height of the Individual you are looking for?",
+    int
   );
-  let thisArray = people.filter(function (el) {
-    if (el.Height == userInputHeight) {
+  let foundPerson = people.filter(function (el) {
+    if (el.Height == height) {
       return true;
     }
   });
-  return thisArray;
+  return foundPerson;
 }
 function searchByWeight(people) {
-  let userInputWeight = prompt(
-    "What is the Weight of the Individual you are looking for?"
+  let weight = prompt(
+    "What is the Weight of the Individual you are looking for?",
+    int
   );
-  let thisArray = people.filter(function (el) {
-    if (el.weight == userInputWeight) {
+  let foundPerson = people.filter(function (el) {
+    if (el.weight == weight) {
       return true;
     }
   });
-  return thisArray;
+  return foundPerson;
 }
 function searchByEyeColor(people) {
-  let userInputEyeColor = prompt(
-    "What is the Eye Colorof the Individual you are looking for?"
+  let eyeColor = prompt(
+    "What is the Eye Colorof the Individual you are looking for?",
+    color
   );
-  let thisArray = people.filter(function (el) {
-    if (el.eyeColor == userInputEyeColor) {
+  let foundPerson = people.filter(function (el) {
+    if (el.eyeColor == eyeColor) {
       return true;
     }
   });
-  return thisArray;
+  return foundPerson;
 }
 function searchByOccupation(people) {
-  let userInputOccupation = prompt(
+  let occupation = prompt(
     "What is the Occupation of the Individual you are looking for?"
   );
-  let thisArray = people.filter(function (el) {
-    if (el.occupation == userInputOccupation) {
+  let foundPerson = people.filter(function (el) {
+    if (el.occupation == occupation) {
       return true;
     }
   });
-  return thisArray;
+  return foundPerson;
 }
 function searchByName(people) {
   let firstName = promptFor("What is the person's first name?", chars);
