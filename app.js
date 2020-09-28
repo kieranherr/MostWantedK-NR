@@ -237,7 +237,7 @@ function getSpouse(person, people) {
   return foundSpouse;
 }
 function getSiblings(person, people) {
-  let foundSiblings = people.filter(function (people) {
+  let siblings = people.filter(function (people) {
     for (let i = 0; i < people.parents.length; i++) {
       if (
         person.parents.includes(people.parents[i]) &&
@@ -251,14 +251,24 @@ function getSiblings(person, people) {
   return foundSiblings;
 }
 function getParents(person, people) {
-  let foundParents = people.filter(function (people) {
-    if (person.parents.includes(people.id)) {
+  let parents = people.filter(function (individual) {
+    if (
+      individual.id === person.parents[0] ||
+      individual.id === person.parents[1]
+    ) {
       return true;
     } else {
       return false;
     }
   });
-  return foundParents;
+  parents.map(function (individual) {
+    if (individual.gender === "female") {
+      individual.role = "mother";
+    } else {
+      individual.role = "father";
+    }
+  });
+  return parents;
 }
 
 function searchForDescendants(person, people) {
