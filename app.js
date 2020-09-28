@@ -215,18 +215,25 @@ function getFamily(person, people) {
   });
   displayPeople(newObj);
 }
-//function getSpouse(person, people){
-//  let foundSpouse = ;//
-//  return foundSpouse;
-//}
-//function getSiblings(person, people){
-//  let foundSiblings = ;//
-//  return foundSiblings;
-//}
-//function getParents(person, people){
-//  let foundParents = ;//
-// return foundParents;
-//}
+function getSpouse(person, people){
+  let foundSpouse = ;
+  return foundSpouse;
+}
+function getSiblings(person, people){
+  let foundSiblings = ;
+  return foundSiblings;
+}
+function getParents(person, people){
+  let foundParents = people.filter(function (people){
+    if (person.parents.includes(people.id)){
+      return true;
+    }
+    else{
+      return false;
+    }
+  });
+  return foundParents;
+}
 
 function searchForDescendants(person, people) {
   let foundDescendants = [];
