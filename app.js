@@ -59,22 +59,22 @@ function searchByTraits(people) {
   let filteredPeople;
   let selected;
   switch (trait) {
-    case "Gender":
+    case "gender":
       filteredPeople = searchByGender(people);
       break;
-    case "DOB: month/day/year":
+    case "dob":
       filteredPeople = searchByDOB(people);
       break;
-    case "Height":
+    case "height":
       filteredPeople = searchByHeight(people);
       break;
-    case "Weight":
+    case "weight":
       filteredPeople = searchByWeight(people);
       break;
-    case "Eye Color":
+    case "eye Color":
       filteredPeople = searchByEyeColor(people);
       break;
-    case "Occupation":
+    case "occupation":
       filteredPeople = searchByOccupation(people);
       break;
     default:
@@ -94,24 +94,27 @@ function searchByTraits(people) {
     }
   }
 }
-function traits(input){
+function traits(input) {
   let trait = input.toLowerCase();
-  if(trait == "gender" || trait == "dob" || trait == "height" || trait == "weight" || trait == "eye color" || trait == "occupation"){
+  if (
+    trait == "gender" ||
+    trait == "dob" ||
+    trait == "height" ||
+    trait == "weight" ||
+    trait == "eye color" ||
+    trait == "occupation"
+  ) {
     return true;
-  }
-  else{
+  } else {
     alert("Invalid search option, please try again.");
     return false;
   }
 }
-
-
 function searchByGender(people) {
   let gender = promptFor(
     "Are you looking for a male, or female?",
     gender
   ).toLowerCase();
-
   let foundPerson = people.filter(function (el) {
     if (el.gender == gender) {
       return true;
@@ -121,19 +124,20 @@ function searchByGender(people) {
   });
   return foundPerson;
 }
-function gender(input){
-  if(input.toLowerCase() == "female" || input.toLowerCase() == "male"){
+function gender(input) {
+  if (input.toLowerCase() == "female" || input.toLowerCase() == "male") {
     return true;
-  }
-  else{
+  } else {
     alert("Invalid option, please try again.");
     return false;
   }
-  }
 }
 function searchByDOB(people) {
-  let dob = parseInt(promptFor(
-    "What is the DOB: month/day/year, of the Individual you are looking for?", int)
+  let dob = parseInt(
+    promptFor(
+      "What is the DOB: month/day/year, of the Individual you are looking for?",
+      int
+    )
   );
   let foundPerson = people.filter(function (el) {
     if (el.dob == dob) {
@@ -144,12 +148,11 @@ function searchByDOB(people) {
   });
   return foundPerson;
 }
-function int(input){
-  if(isNaN(input) || input < 1 || input > 500) {
+function int(input) {
+  if (isNaN(input) || input < 1 || input > 500) {
     alert("Invalid option, please try again.");
     return false;
-  }
-  else{
+  } else {
     return true;
   }
 }
@@ -181,7 +184,9 @@ function searchByWeight(people) {
 }
 function searchByEyeColor(people) {
   let eyeColor = promptFor(
-    "What is the Eye Colorof the Individual you are looking for?", color).toLowerCase();
+    "What is the Eye Colorof the Individual you are looking for?",
+    color
+  ).toLowerCase();
   let foundPerson = people.filter(function (el) {
     if (el.eyeColor == eyeColor) {
       return true;
@@ -191,15 +196,28 @@ function searchByEyeColor(people) {
   });
   return foundPerson;
 }
-function color(input){
+function color(input) {
   let eyecolor = input.toLowerCase();
-  if (eyecolor == "blue" || eyecolor == "brown" || eyecolor == "black" || eyecolor == "green" || eyecolor == "hazel" || eyecolor == "amber" || eyecolor == "gray"){
-
+  if (
+    eyecolor == "blue" ||
+    eyecolor == "brown" ||
+    eyecolor == "black" ||
+    eyecolor == "green" ||
+    eyecolor == "hazel" ||
+    eyecolor == "amber" ||
+    eyecolor == "gray"
+  ) {
+    return true;
+  } else {
+    alert("Invalid option, please try again.");
+    return false;
   }
 }
 function searchByOccupation(people) {
   let occupation = promptFor(
-    "What is the Occupation of the Individual you are looking for?", chars).toLowerCase();
+    "What is the Occupation of the Individual you are looking for?",
+    chars
+  ).toLowerCase();
   let foundPerson = people.filter(function (el) {
     if (el.occupation == occupation) {
       return true;
@@ -350,4 +368,3 @@ function yesNo(input) {
 function chars(input) {
   return true;
 }
-
