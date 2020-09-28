@@ -57,48 +57,41 @@ function searchByTraits(people) {
     traits
   ).toLowerCase();
   let filteredPeople = people;
-  while (trait != "exit") {
-    switch (trait) {
-      case "gender":
-        filteredPeople = searchByGender(people);
-        searchByTraits(filteredPeople);
-        break;
-      case "dob":
-        filteredPeople = searchByDOB(people);
-        searchByTraits(filteredPeople);
-        break;
-      case "height":
-        filteredPeople = searchByHeight(people);
-        searchByTraits(filteredPeople);
-        break;
-      case "weight":
-        filteredPeople = searchByWeight(people);
-        searchByTraits(filteredPeople);
-        break;
-      case "eye Color":
-        filteredPeople = searchByEyeColor(people);
-        searchByTraits(filteredPeople);
-        break;
-      case "occupation":
-        filteredPeople = searchByOccupation(people);
-        searchByTraits(filteredPeople);
-        break;
-      default:
-        alert("Invalid search option, please try again.");
-        if (filteredPeople.length == 0) {
-          searchByTraits(people);
-        } else {
-          searchByTraits(filteredPeople);
-        }
-        break;
-    }
-  }
-  if (filteredPeople.length == 0) {
-    alert("No one matches those parameters. Please try again.");
-    app(people);
-  } else {
-    displayPeople(filteredPeople);
-    app(people);
+while(trait != "exit"){
+  switch (trait) {
+    case "gender":
+      filteredPeople = searchByGender(people);
+      searchByTraits(filteredPeople);
+      break;
+    case "dob":
+      filteredPeople = searchByDOB(people);
+      searchByTraits(filteredPeople);
+      break;
+    case "height":
+      filteredPeople = searchByHeight(people);
+      searchByTraits(filteredPeople);
+      break;
+    case "weight":
+      filteredPeople = searchByWeight(people);
+      searchByTraits(filteredPeople);
+      break;
+    case "eye color":
+      filteredPeople = searchByEyeColor(people);
+      searchByTraits(filteredPeople);
+      break;
+    case "occupation":
+      filteredPeople = searchByOccupation(people);
+      searchByTraits(filteredPeople);
+      break;
+    default:
+      alert("Invalid search option, please try again.");
+      if(filteredPeople.length == 0){
+        searchByTraits(people);
+      }
+      else{
+      searchByTraits(filteredPeople);
+      }
+      break;
   }
 }
 function traits(input) {
@@ -141,12 +134,11 @@ function gender(input) {
   }
 }
 function searchByDOB(people) {
-  let dob = parseInt(
+  let dob =
     promptFor(
       "What is the DOB: month/day/year, of the Individual you are looking for?",
-      int
-    )
-  );
+      chars
+    );
   let foundPerson = people.filter(function (el) {
     if (el.dob == dob) {
       return true;
