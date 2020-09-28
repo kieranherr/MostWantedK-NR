@@ -218,7 +218,14 @@ function getSpouse(person, people){
   return foundSpouse;
 }
 function getSiblings(person, people){
-  let foundSiblings = ;
+  let foundSiblings = people.filter(function(people) {
+    for(let i = 0; i < people.parents.length; i++) {
+      if(person.parents.includes(people.parents[i]) && person.id !== people.id) {
+        return true;
+      }
+    }
+    return false;
+  });
   return foundSiblings;
 }
 function getParents(person, people){
