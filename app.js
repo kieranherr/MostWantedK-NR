@@ -168,8 +168,6 @@ function searchByName(people) {
       return false;
     }
   });
-  console.log(foundPerson);
-  // TODO: find the person using the name they entered
   const newObj = foundPerson.reduce(function (result, item, index) {
     result[index] = item;
     return result;
