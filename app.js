@@ -75,7 +75,7 @@ while(trait != "exit"){
       filteredPeople = searchByWeight(people);
       searchByTraits(filteredPeople);
       break;
-    case "eye Color":
+    case "eye color":
       filteredPeople = searchByEyeColor(people);
       searchByTraits(filteredPeople);
       break;
@@ -154,12 +154,11 @@ function gender(input) {
   }
 }
 function searchByDOB(people) {
-  let dob = parseInt(
+  let dob =
     promptFor(
       "What is the DOB: month/day/year, of the Individual you are looking for?",
-      int
-    )
-  );
+      chars
+    );
   let foundPerson = people.filter(function (el) {
     if (el.dob == dob) {
       return true;
