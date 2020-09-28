@@ -227,6 +227,7 @@ function searchByOccupation(people) {
   });
   return foundPerson;
 }
+
 function searchByName(people) {
   let firstName = promptFor("What is the person's first name?", chars);
   let lastName = promptFor("What is the person's last name?", chars);
