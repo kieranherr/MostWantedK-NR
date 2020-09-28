@@ -52,9 +52,10 @@ function mainMenu(person, people) {
   }
 }
 function searchByTraits(people) {
-  let trait = promt(
-    "What traits or characteristics would you like to search for? 'Gender', 'DOB: month/day/year', 'Height', 'Weight', 'Eye color', 'Occupation'"
-  );
+  let trait = promtFor(
+    "What traits or characteristics would you like to search for? 'Gender', 'DOB: month/day/year', 'Height', 'Weight', 'Eye color', 'Occupation'",
+    traits
+  ).toLowerCase();
   let filteredPeople;
   let selected;
   switch (trait) {
@@ -93,10 +94,24 @@ function searchByTraits(people) {
     }
   }
 }
+function traits(input){
+  let trait = input.toLowerCase();
+  if(trait == "gender" || trait == "dob" || trait == "height" || trait == "weight" || trait == "eye color" || trait == "occupation"){
+    return true;
+  }
+  else{
+    alert("Invalid search option, please try again.");
+    return false;
+  }
+}
+
+
 function searchByGender(people) {
-  let gender = prompt(
-    "What is the gender of the Individual you are looking for?"
-  );
+  let gender = promptFor(
+    "Are you looking for a male, or female?",
+    gender
+  ).toLowerCase();
+
   let foundPerson = people.filter(function (el) {
     if (el.gender == gender) {
       return true;
@@ -106,9 +121,19 @@ function searchByGender(people) {
   });
   return foundPerson;
 }
+function gender(input){
+  if(input.toLowerCase() == "female" || input.toLowerCase() == "male"){
+    return true;
+  }
+  else{
+    alert("Invalid option, please try again.");
+    return false;
+  }
+  }
+}
 function searchByDOB(people) {
-  let dob = prompt(
-    "What is the DOB: month/day/year, of the Individual you are looking for?"
+  let dob = promptFor(
+    "What is the DOB: month/day/year, of the Individual you are looking for?", dob)
   );
   let foundPerson = people.filter(function (el) {
     if (el.dob == dob) {
@@ -120,8 +145,8 @@ function searchByDOB(people) {
   return foundPerson;
 }
 function searchByHeight(people) {
-  let height = prompt(
-    "What is the Height of the Individual you are looking for?"
+  let height = parseInt(
+    promptFor("What is the Height of the Individual you are looking for?", int)
   );
   let foundPerson = people.filter(function (el) {
     if (el.Height == height) {
@@ -133,8 +158,8 @@ function searchByHeight(people) {
   return foundPerson;
 }
 function searchByWeight(people) {
-  let weight = prompt(
-    "What is the Weight of the Individual you are looking for?"
+  let weight = parseInt(
+    prompt("What is the Weight of the Individual you are looking for?", int)
   );
   let foundPerson = people.filter(function (el) {
     if (el.weight == weight) {
@@ -146,9 +171,8 @@ function searchByWeight(people) {
   return foundPerson;
 }
 function searchByEyeColor(people) {
-  let eyeColor = prompt(
-    "What is the Eye Colorof the Individual you are looking for?"
-  );
+  let eyeColor = promptFor(
+    "What is the Eye Colorof the Individual you are looking for?", color).toLowerCase();
   let foundPerson = people.filter(function (el) {
     if (el.eyeColor == eyeColor) {
       return true;
@@ -159,9 +183,8 @@ function searchByEyeColor(people) {
   return foundPerson;
 }
 function searchByOccupation(people) {
-  let occupation = prompt(
-    "What is the Occupation of the Individual you are looking for?"
-  );
+  let occupation = promptFor(
+    "What is the Occupation of the Individual you are looking for?", chars).toLowerCase();
   let foundPerson = people.filter(function (el) {
     if (el.occupation == occupation) {
       return true;
@@ -226,9 +249,15 @@ function getFamily(person, people) {
   });
   displayPeople(newObj);
 }
+
 function getSpouse(person, people) {
-  let foundSpouse = people.filter(function (people) {
-    if (people.currentSpouse == person.id) {
+  let foundSpouse = people.filter(function (spouse) {
+    if (people.currentSpouse === spose.id) {
+      if (spouse.currentSpouse === "female") {
+        spouse.role = "wife";
+      } else {
+        spouse.role = "husband";
+      }
       return true;
     } else {
       return false;
@@ -237,7 +266,7 @@ function getSpouse(person, people) {
   return foundSpouse;
 }
 function getSiblings(person, people) {
-  let siblings = people.filter(function (people) {
+  let siblings = people.filter(function (familymember) {
     if (person.id === familymember.id) {
       return false;
     }
@@ -306,3 +335,4 @@ function yesNo(input) {
 function chars(input) {
   return true;
 }
+
