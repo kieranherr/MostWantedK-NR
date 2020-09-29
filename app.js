@@ -283,7 +283,6 @@ function getFamily(person, people) {
   });
   displayPeople(newObj);
 }
-
 function getSpouse(person, people) {
   let foundSpouse = people.filter(function (spouse) {
     if (people.currentSpouse === spose.id) {

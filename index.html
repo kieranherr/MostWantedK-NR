@@ -5,12 +5,26 @@
     <title>Most Wanted</title>
     <meta name="MostWanted" content="Here are the Most Wanted." />
     <meta name="robots" content="index, follow" />
-    <link rel + "icon" href=""> <meta name="viewport"
-    content="width=device-width, initial-scale=1"
-  </head>
-  <body>
-    <button onclick="app(data)">Start Searching</button>
+
+    <link rel="stylesheet" href="styles.css" />
     <script src="data.js"></script>
     <script src="app.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <h1 id="logo">MostWanted</h1>
+        <ul>
+          <li><button onclick="app(data)">Start Searching</button></li>
+        </ul>
+        <div class="clear"></div>
+      </nav>
+    </header>
+    <div class="col text-center">
+      <button type="button" class="btn btn-1" onclick="app(data)">
+        Start Searching
+      </button>
+    </div>
   </body>
 </html>

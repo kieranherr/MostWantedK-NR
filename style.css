@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+.clear {
+  clear: both;
+}
+h1 {
+  font-size: 15rem;
+}
+.btn-1 {
+  margin-bottom: 10rem;
+  padding: 10px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  width: 50%;
+}
+.btn-1 {
+  background-color: rgb(61, 81, 102);
+}
