@@ -12,14 +12,16 @@ html {
 h1 {
   font-size: 15rem;
 }
-.btn-1 {
+.btn{
+  background-color: #18a4bc !important;
+  border-color: #18a4bc !important;
+}
+.btn1 {
   margin-bottom: 10rem;
   padding: 10px;
-  border: none;
-  color: white;
+  border: 2px;
+ 
   cursor: pointer;
   width: 50%;
 }
-.btn-1 {
-  background-color: rgb(61, 81, 102);
-}
+

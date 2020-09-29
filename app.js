@@ -94,6 +94,7 @@ while(trait != "exit"){
       break;
   }
 }
+}
 function traits(input) {
   let trait = input.toLowerCase();
   if (
